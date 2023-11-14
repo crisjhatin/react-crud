@@ -1,15 +1,18 @@
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { Dialog } from '@headlessui/react';
-import { collection, getDocs, query, addDoc } from 'firebase/firestore';
+import { collection, getDocs, query, addDoc, doc, updateDoc } from 'firebase/firestore';
 import { useEffect, useRef, useState } from 'react';
 import { useAuthState } from '~/components/contexts/UserContext';
 import { SignInButton } from '~/components/domain/auth/SignInButton';
 import { SignOutButton } from '~/components/domain/auth/SignOutButton';
 import { Head } from '~/components/shared/Head';
 import { useFirestore } from '~/lib/firebase';
-import { PencilSquareIcon } from '@heroicons/react/24/outline'
+import ToolCard from '../shared/ToolCard';
+import 'react-toastify/dist/ReactToastify.css';
+
+//For ToolCard
 export type Tool = {
   id: string,
   title: string,
@@ -18,7 +21,7 @@ export type Tool = {
 }
 
 //Variables to store data for a while
-enum InputEnum {
+export enum InputEnum {
   Id='id',
   Title='title',
   Description='description',
@@ -54,6 +57,27 @@ function Index() {
     fetchData();
   }, []);
 
+  //Update tool (Editing)
+  const onUpdateTool =  (id: string, data: Partial<Tool>) => {
+    const docRef = doc(firestore, "tools", id);
+
+     updateDoc(docRef, data)
+      .then(docRef => {
+        toast.success('🦄 updated the tool successfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
   const handleInputChange=(field: InputEnum, value:string) => {
     setInputData({... inputData, [field]: value})
@@ -114,14 +138,7 @@ function Index() {
           <div className="grid grid-cols-3 gap-4 w-full bg-transparent text-slate-50">
             {
               tools.map((tool)=>(
-                <div key={tool.id} className='h-48 group relative rounded-md flex flex-col justify-between shadow-slate-900 shadow-md p-4 bg-gradient-to-r from-slate-800 to-slate-700'>
-      <div>
-        <div className="text-xl mb-2 font-bold">{tool.title}</div>
-        <div className="">{tool.description}</div>
-      </div>
-      <a href='{tool.url}' target='_blank' className="text-slate-400">{tool.url}</a>
-      <PencilSquareIcon className="h-6 w-6 text-slate-900 hidden group-hover:block absolute top-4 right-4 cursor-pointer" />
-    </div>
+                <ToolCard key={tool.id} tool={tool} onUpdate={onUpdateTool}/>
               ))
     
             }
