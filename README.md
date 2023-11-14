@@ -1,10 +1,8 @@
-# ⚡ vite-react-ts-tailwind-starter
-
-Starter using Vite + React + TypeScript + Tailwind with Firebase.
+# ⚡CRUD React (AI Tools)
 
 ## Motivation
 
-Improve building your faster **prototyping** by using Vite, TypeScript, React, TailwindCSS, Firebase.
+...
 
 This starter uses following libraries:
 
