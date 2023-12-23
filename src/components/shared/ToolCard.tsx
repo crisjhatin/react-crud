@@ -40,22 +40,24 @@ const ToolCard = ({tool, onUpdate}: ToolCardProps) => {
   )
 
   return(
-    <div key={tool.id} className='h-48 group relative rounded-md flex flex-col justify-between shadow-slate-900 shadow-md p-4 bg-gradient-to-r from-slate-800 to-slate-700'>
+    <div key={tool.id} className="h-48 group relative rounded-md flex flex-col justify-between shadow-slate-900 shadow-md p-4 bg-gradient-to-r from-slate-800 to-slate-700">
       <div>
         <input className={clsx(inputClasses,
-          "text-xl mb-2 font-bold text-slate-50",
+          /*additional attributes*/ "text-xl mb-2 font-bold text-slate-50", 
           {
             'bg-gray-900': isEdit,
             'cursor-text': isEdit
           })} 
           value={inputData.title} 
           onChange={(e) => handleInputChange(InputEnum.Title, e.target.value)}
+          readOnly={isEdit?false:true}
           />
         <input className={clsx(inputClasses,{
           'bg-gray-900':isEdit,
           'cursor-text': isEdit
         })} value={inputData.description} 
         onChange={(e) => handleInputChange(InputEnum.Description, e.target.value)}
+        readOnly={isEdit?false:true}
         />
       </div>
       <input className={
@@ -67,6 +69,7 @@ const ToolCard = ({tool, onUpdate}: ToolCardProps) => {
       })}
        value={tool.url} 
        onChange={(e) => handleInputChange(InputEnum.Url, e.target.value)}
+       readOnly={isEdit?false:true}
        />
       { 
         isEdit ?
