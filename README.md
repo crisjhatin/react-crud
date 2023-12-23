@@ -3,7 +3,7 @@
 ## Steps
 1. Clone this repo.
 2. Install yarn: https://yarnpkg.com/getting-started/install
-3. Run the project: `yarn run dev`
+3. Run the project: `yarn dev`
 
 ## Technologies
 - React
