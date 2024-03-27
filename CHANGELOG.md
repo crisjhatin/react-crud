@@ -21,3 +21,8 @@ This is a React To Do project
 
 ### Updated
 - *deploy.yml*: Fixing build parameter.
+
+## [1.0.2] - 2024-03-26
+
+### Updated
+- *deploy.yml*: Fixing node parameters.
