@@ -99,13 +99,13 @@
       try {
         const toolsCollection=collection(firestore, "tools");
         const newTool: Partial<Tool>={
-          title:inputData.title,
-          description:inputData.description,
-          url:inputData.url
+          title: inputData.title,
+          description: inputData.description,
+          url: inputData.url
         }
         
         //adding new tool
-        await addDoc(toolsCollection, newTool);
+        const docRef = await addDoc(toolsCollection, newTool);
         //notification
         toast.success('🦄 Saved the tool successfully!', {
           position: "top-right",
@@ -120,7 +120,7 @@
 
         setNumDocs(numDocs=>numDocs+1);
         //save to show in the table (card)
-        setTools([...tools, newTool]);
+        setTools([...tools,{ id: docRef.id, ...newTool} as Tool]);
         //clean data from inputs
         setInputData({
           title: '',

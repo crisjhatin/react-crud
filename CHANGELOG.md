@@ -57,3 +57,8 @@ This is a React To Do project
 
 ### Updated
 - *jekyll-gh-pages.yml*: yarn parameters
+
+## [1.0.9] - 2024-03-27
+
+### Updated
+- *Index.tsx*: Type error of Tool fixed.
