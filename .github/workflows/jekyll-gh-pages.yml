@@ -23,6 +23,9 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,7 +46,6 @@ jobs:
         with:
           # Upload dist folder
           path: './dist'
-          environment_url: https://crisjhatin.github.io/react-to-do/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

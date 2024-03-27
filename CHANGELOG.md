@@ -62,3 +62,8 @@ This is a React To Do project
 
 ### Updated
 - *Index.tsx*: Type error of Tool fixed.
+
+## [1.0.10] - 2024-03-27
+
+### Updated
+- *jekyll-gh-pages.yml*: deploy parameters fixed.
