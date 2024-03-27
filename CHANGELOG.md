@@ -26,3 +26,8 @@ This is a React To Do project
 
 ### Updated
 - *deploy.yml*: Fixing node parameters.
+
+## [1.0.3] - 2024-03-27
+
+### Updated
+- *deploy.yml*: Fixing deploy file with code provided from vite.dev.
