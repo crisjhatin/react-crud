@@ -42,3 +42,13 @@ This is a React To Do project
 
 ### Deleted
 - *deploy.yml*.
+
+## [1.0.6] - 2024-03-27
+
+### Added
+- *jekyll-gh-pages.yml*.
+
+## [1.0.7] - 2024-03-27
+
+### Updated
+- *jekyll-gh-pages.yml*: URL parameter
