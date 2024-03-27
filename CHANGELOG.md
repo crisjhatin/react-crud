@@ -16,3 +16,8 @@ This is a React To Do project
 ### Updated
 - *ToolCard.tsx*: OnDelete prop/icon.
 - *Index.tsx*: Delete doc functionality. Limitation of 10 docs added. 
+
+## [1.0.1] - 2024-03-26
+
+### Updated
+- *deploy.yml*: Fixing build parameter.
