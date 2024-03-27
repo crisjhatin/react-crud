@@ -29,11 +29,12 @@ export const Router = () => {
 const InnerRouter = () => {
   const routes: RouteObject[] = [
     {
-      path: '/',
+      path: '/react-to-do/',
       element: <Layout />,
       children: [
         {
           index: true,
+          path: '/react-to-do/',
           element: <IndexScreen />,
         },
         {

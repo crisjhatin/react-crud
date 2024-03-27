@@ -31,3 +31,9 @@ This is a React To Do project
 
 ### Updated
 - *deploy.yml*: Fixing deploy file with code provided from vite.dev.
+
+## [1.0.4] - 2024-03-27
+
+### Updated
+- *Router*: Adding paths.
+- *package.json*: Adding homepage path.

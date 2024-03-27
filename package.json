@@ -1,9 +1,10 @@
 {
-  "name": "vite-react-ts-tailwind-starter",
+  "name": "react-to-do",
+  "homepage": "https://crisjhatin.github.io/react-to-do/",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
-    "name": "TeXmeijin"
+    "name": "crisjhatin"
   },
   "scripts": {
     "dev": "vite",
