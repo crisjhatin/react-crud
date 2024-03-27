@@ -37,3 +37,8 @@ This is a React To Do project
 ### Updated
 - *Router*: Adding paths.
 - *package.json*: Adding homepage path.
+
+## [1.0.5] - 2024-03-27
+
+### Deleted
+- *deploy.yml*.
