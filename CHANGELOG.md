@@ -52,3 +52,8 @@ This is a React To Do project
 
 ### Updated
 - *jekyll-gh-pages.yml*: URL parameter
+
+## [1.0.8] - 2024-03-27
+
+### Updated
+- *jekyll-gh-pages.yml*: yarn parameters
