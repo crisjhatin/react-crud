@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Tool, InputEnum }  from "../screens/Index";
-import { PencilSquareIcon, CheckIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { PencilSquareIcon, CheckIcon, XCircleIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { clsx } from "clsx";
 
 
 interface ToolCardProps{
   tool: Tool
-  onUpdate: (data: Partial<Tool>)=>void
+  onUpdate: (id:string, data: Partial<Tool>)=>void
+  onDelete: (data: string)=>void
 }
 
-const ToolCard = ({tool, onUpdate}: ToolCardProps) => {
+const ToolCard = ({tool, onUpdate, onDelete}: ToolCardProps) => {
   const [isEdit, setIsEdit]= useState<boolean>(false);
   const [inputData, setInputData]=useState<Partial<Tool>>(tool);
   
@@ -29,6 +30,10 @@ const ToolCard = ({tool, onUpdate}: ToolCardProps) => {
     //Change the state because it's edited now.
     setIsEdit(false);
     onUpdate(tool.id, inputData);
+  }
+  const handleDelete = () => {
+    setIsEdit(false);
+    onDelete(tool.id);
   }
 
   const inputClasses = clsx (
@@ -75,7 +80,8 @@ const ToolCard = ({tool, onUpdate}: ToolCardProps) => {
         isEdit ?
         <>
           <CheckIcon onClick={handleUpdate} className="h-6 w-6 text-green-900 absolute top-4 right-12 cursor-pointer"/>
-          <XCircleIcon onClick={onClose} className="h-6 w-6 text-red-900 absolute top-4 right-4 cursor-pointer"/>
+          <XCircleIcon onClick={onClose} className="h-6 w-6 text-blue-900 absolute top-4 right-4 cursor-pointer"/>
+          <TrashIcon onClick={handleDelete} className="h-6 w-6 text-red-900 absolute top-4 right cursor-pointer"/>
         </> :
         <button className="btn btn-active btn-ghost hidden group-hover:block absolute top-4 right-4 p-0" onClick={toggleIsEdit}>
           <PencilSquareIcon className="h-6 w-6 text-slate-50 cursor-pointer" />
